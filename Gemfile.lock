@@ -193,6 +193,9 @@ GEM
     timecop (0.8.0)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
+    uglifier (2.5.3)
+      execjs (>= 0.3.0)
+      json (>= 1.8.0)
     yard (0.8.7.6)
 
 PLATFORMS
@@ -227,4 +230,5 @@ DEPENDENCIES
   simplecov
   spring
   timecop
+  uglifier
   yard
