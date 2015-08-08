@@ -1,0 +1,17 @@
+- title @survey.title
+
+.row
+  .col-sm-12
+    .survey
+      .survey__header
+
+        .survey__title= emojify @survey.title
+        .survey__description
+          - if @survey.description.blank?
+            %em.nothing This survey has no description
+          - else
+            = emojify @survey.description
+
+        .survey__meta
+          = icon :clip
+          = link_to survey_url(@survey.public_url), "", class: "survey__url survey_url--public"

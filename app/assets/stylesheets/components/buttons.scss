@@ -1,0 +1,23 @@
+.btn {
+  $btn-color: $primary-color;
+  $btn-hover-color: darken($btn-color, 3%);
+  $btn-pressed-color: darken($btn-color, 5%);
+
+  padding: 12px 26px;
+  background-color: $btn-color;
+  color: white;
+  font-weight: 400;
+
+  &:hover, &:focus, &:active {
+    text-decoration: none;
+    color: white;
+  }
+
+  &:hover, &:focus {
+    background-color: $btn-hover-color;
+  }
+
+  &:active {
+    background-color: $btn-pressed-color;
+  }
+}

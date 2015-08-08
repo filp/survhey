@@ -10,16 +10,19 @@ gem "bourbon"
 gem "flutie"
 gem "haml-rails"
 gem "sass", "~> 3.4.14"
+gem "bootstrap-sass", "~> 3.3.5"
 gem "sass-rails"
 gem "puma", "~> 2.11.3"
 gem "foreman", require: false
 gem "jquery-rails"
+gem "gemoji"
 
 group :development do
   gem "spring"
   gem "quiet_assets"
   gem "better_errors"
   gem "binding_of_caller"
+  gem "annotate"
 end
 
 group :development, :test do

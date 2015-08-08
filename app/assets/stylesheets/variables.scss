@@ -1,0 +1,59 @@
+//== Primary color
+$primary-color: #f3582a;
+$primary-color-faded: #51b58d;
+
+//== Secondary color (use sparingly)
+$secondary-color: #52668b;
+$secondary-color-faded: lighten(desaturate($secondary-color, 15%), 2%);
+
+// Text colors
+// Try to only use these as much as possible!
+$normal-text-color: #464646;
+$secondary-text-color: #b0b0b0;
+$unimportant-text-color: #c7c7c7;
+
+$link-color: $primary-color;
+
+$spacer-color: $secondary-text-color; // Look in mixins.css.scss
+
+// Body stuff
+$body-bg: #fff;
+$text-color: #090909;
+
+// Grays
+// Use these around the interface
+$semi-white: #fafafa;
+$clear-gray: #efefef;
+$bright-gray: #dadada;
+$normal-gray: #cecece;
+$medium-gray: #a5a5a5; // Prone to variation
+$dark-gray: #747474; // Prone to variation
+$black-gray: #232323;
+
+$extra-gray: #2e2d2b; // Use rarely
+
+//== Borders
+$base-border-color: #e8e3df;
+
+$primary-border-color: darken($primary-color, 8%);
+$primary-border-color-faded: darken($primary-color-faded, 8%);
+
+//== Typography:
+$font-family-sans-serif: "Roboto", "Helvetica Neue", helvetica, arial, sans-serif;
+
+$font-size-base: 16px;
+
+$biggerer-text: 26px; // Use very sparingly
+$bigger-text: 22px; // Use very sparingly
+$normal-text: 16px;
+$small-text: 14px;
+$tiny-text: 12px; // Do not use this except for rare situations
+
+// Radiuses
+$base-border-radius: 3px;
+$border-radius-rounded: 90px;
+
+//== Grid
+$grid-gutter-width: 30px;
+$container-desktop: ((780px + $grid-gutter-width));
+$container-large-desktop: $container-desktop;

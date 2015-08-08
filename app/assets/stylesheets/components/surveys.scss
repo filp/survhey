@@ -1,0 +1,18 @@
+.survey {}
+  .survey__meta {
+    margin: 25px 0;
+  }
+
+    .survey__url {
+      font-size: $small-text;
+    }
+
+  .survey__title {
+    font-size: $biggerer-text;
+  }
+
+  .survey__description {
+    color: $secondary-text-color;
+    font-size: $small-text;
+    padding: 10px 0;
+  }

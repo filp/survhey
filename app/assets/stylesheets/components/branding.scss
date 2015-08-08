@@ -1,0 +1,15 @@
+.branding {}
+
+  .branding__name {
+    font-weight: bold;
+    font-size: $bigger-text;
+    vertical-align: middle;
+    margin-right: 10px;
+  }
+
+  .branding__message {
+    color: $secondary-text-color;
+    font-size: $small-text;
+    font-weight: 300;
+    vertical-align: middle;
+  }
