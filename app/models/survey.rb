@@ -21,8 +21,24 @@
 class Survey < ActiveRecord::Base
   before_validation :assign_urls
 
+  has_many :choices
+  has_many :answers
+
   validates :title, length: { minimum: 1, maximum: 140 }
   validates :description, length: { maximum: 1024 }
+  validate :number_of_choices
+
+  def answers?
+    answers.any?
+  end
+
+  def total_answers
+    answers.count
+  end
+
+  def answers_from_uid(uid)
+    answers.where(uid: uid)
+  end
 
 private
 
@@ -35,5 +51,10 @@ private
 
   def generate_url(size)
     SecureRandom.hex(size)
+  end
+
+  # Ensure that a survey always has at least one choice
+  def number_of_choices
+    errors.add(:base, :atleast_one_choice) unless choices.any?
   end
 end

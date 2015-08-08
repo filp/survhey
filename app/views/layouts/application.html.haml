@@ -3,7 +3,7 @@
   %head
     %meta{charset: "utf-8"}
     %meta{name: "survey-uid", value: current_user.uid}
-    %title= page_title
+    %title= page_title(app_name: "survhey.io", separator: " - ")
 
     = stylesheet_link_tag "//fonts.googleapis.com/css?family=Roboto:300,400,500"
     = stylesheet_link_tag :application

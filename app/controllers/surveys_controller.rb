@@ -1,7 +1,10 @@
 class SurveysController < ApplicationController
-  before_action :load_survey_from_public_url, only: [:show]
+  before_action :load_survey_from_public_url, only: [:show, :answer]
 
   def show
+  end
+
+  def answer
   end
 
 private

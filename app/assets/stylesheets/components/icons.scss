@@ -2,3 +2,10 @@
   color: $primary-color;
   vertical-align: middle;
 }
+
+.big-icon {
+  display: block;
+  width: 120px;
+  margin: 20px auto;
+  font-size: $bigger-text * 2.3;
+}

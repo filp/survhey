@@ -1,0 +1,12 @@
+.survey__results#results
+  - if !survey.answers?
+    .survey__results__header
+      #{icon :lab} Results
+  - else
+    %p.no-content
+      = icon :lab, "big-icon"
+
+      This survey didn't receive any answers yet, check back soon!
+
+      - if created_survey?(survey)
+        You can share it with your friends or colleagues by linking them to this page.

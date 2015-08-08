@@ -9,7 +9,9 @@ module ApplicationHelper
     "is better",
     "watches you sleep",
     "has tickets to that thing you like",
-    "wishes you called more often"
+    "wishes you called more often",
+    "will be there for you",
+    "thrice a day keeps the doctor away"
   ].freeze
 
   def current_user
@@ -27,7 +29,7 @@ module ApplicationHelper
   def emojify(content)
     h(content).to_str.gsub(/:([\w+-]+):/) do |match|
       if emoji = Emoji.find_by_alias($1)
-        %(<img alt="#$1" src="#{image_path("emoji/#{emoji.image_filename}")}" class="emoji" width="20" height="20" />)
+        %(<img alt="#$1" src="#{image_path("emoji/#{emoji.image_filename}")}" class="emoji"  />)
       else
         match
       end

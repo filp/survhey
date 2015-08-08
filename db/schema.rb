@@ -11,10 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150808212612) do
+ActiveRecord::Schema.define(version: 20150808225250) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "answers", force: :cascade do |t|
+    t.string   "uid",        null: false
+    t.integer  "choice_id",  null: false
+    t.integer  "survey_id",  null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "answers", ["choice_id"], name: "index_answers_on_choice_id", using: :btree
+  add_index "answers", ["survey_id"], name: "index_answers_on_survey_id", using: :btree
+
+  create_table "choices", force: :cascade do |t|
+    t.string  "body",                  null: false
+    t.integer "survey_id",             null: false
+    t.integer "position",  default: 0, null: false
+  end
+
+  add_index "choices", ["position"], name: "index_choices_on_position", using: :btree
+  add_index "choices", ["survey_id"], name: "index_choices_on_survey_id", using: :btree
 
   create_table "surveys", force: :cascade do |t|
     t.string   "public_url",                  null: false
@@ -30,4 +50,6 @@ ActiveRecord::Schema.define(version: 20150808212612) do
   add_index "surveys", ["private_url"], name: "index_surveys_on_private_url", unique: true, using: :btree
   add_index "surveys", ["public_url"], name: "index_surveys_on_public_url", unique: true, using: :btree
 
+  add_foreign_key "answers", "choices"
+  add_foreign_key "answers", "surveys"
 end

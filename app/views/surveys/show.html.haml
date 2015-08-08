@@ -4,7 +4,6 @@
   .col-sm-12
     .survey
       .survey__header
-
         .survey__title= emojify @survey.title
         .survey__description
           - if @survey.description.blank?
@@ -15,7 +14,7 @@
         .survey__meta
           .survey__visibility{class: "survey__visibility--#{@survey.public? ? :public : :private}"}
             - if @survey.public?
-              #{icon(:world)} The results of this survey are public
+              #{icon(:eye)} The results of this survey are public
             - else
               #{icon(:lock)} The results of this survey are private
 
@@ -23,7 +22,20 @@
           - if created_survey?(@survey)
             .survey__actions
 
-
           .survey__urls
             = icon :clip
             = link_to survey_url(@survey.public_url), "", class: "survey__url survey_url--public"
+
+      - if answered?(@survey)
+        - if @survey.public? || created_survey?(@survey)
+          = render "surveys/results", survey: @survey
+        - else
+          %p.no-content
+            Thank you for answering this survey! Its creator has decided not to make the results
+            public.
+
+      - else
+        .survey__choices
+          - @survey.choices.each do |choice|
+            .survey__choice
+              .survey__choice__title= emojify choice.body
