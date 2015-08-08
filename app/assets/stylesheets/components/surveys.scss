@@ -1,18 +1,21 @@
 .survey {}
   .survey__meta {
     margin: 25px 0;
+    font-size: $small-text;
   }
-
-    .survey__url {
-      font-size: $small-text;
+    .survey__visibility {
+      color: $secondary-text-color;
     }
+      .survey__visibility--private {}
+
+    .survey__url {}
 
   .survey__title {
-    font-size: $biggerer-text;
+    font-size: $biggerer-text * 1.7;
+    font-weight: 600;
   }
 
   .survey__description {
-    color: $secondary-text-color;
-    font-size: $small-text;
+    color: $dark-gray;
     padding: 10px 0;
   }

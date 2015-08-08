@@ -12,6 +12,10 @@ module ApplicationHelper
     "wishes you called more often"
   ].freeze
 
+  def current_user
+    @current_user
+  end
+
   def title(title)
     content_for(:page_title, title)
   end

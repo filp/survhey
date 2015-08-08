@@ -9,6 +9,8 @@
 #  description :text
 #  created_at  :datetime
 #  updated_at  :datetime
+#  uid         :string           not null
+#  public      :boolean          default("false"), not null
 #
 # Indexes
 #

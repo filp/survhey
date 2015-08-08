@@ -13,5 +13,17 @@
             = emojify @survey.description
 
         .survey__meta
-          = icon :clip
-          = link_to survey_url(@survey.public_url), "", class: "survey__url survey_url--public"
+          .survey__visibility{class: "survey__visibility--#{@survey.public? ? :public : :private}"}
+            - if @survey.public?
+              #{icon(:world)} The results of this survey are public
+            - else
+              #{icon(:lock)} The results of this survey are private
+
+
+          - if created_survey?(@survey)
+            .survey__actions
+
+
+          .survey__urls
+            = icon :clip
+            = link_to survey_url(@survey.public_url), "", class: "survey__url survey_url--public"
