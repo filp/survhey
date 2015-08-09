@@ -4,6 +4,8 @@
   .col-sm-12
     - if @surveys.empty?
       %p.no-content
+        = icon :lab, "big-icon"
+
         You didn't create any surveys yet. #{link_to "Create a survey", new_survey_path}
     - else
       .survey-list
