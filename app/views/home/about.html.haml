@@ -1,4 +1,13 @@
 .row
   .col-sm-12
-    %p.no-content
-      There's nothing here :(
+    %p
+      = icon :paperplane, "big-icon"
+
+      #{link_to "survhey.io", root_path} was created by Filipe Dobreira, on a Sunday around midnight.
+
+    %p
+      Its source code is available on Github: #{link_to "filp/survhey", "https://github.com/filp/survhey"}
+
+    %p
+      If you liked it, found a bug, or just to say hi, tweet away at
+      #{link_to "@imfilp", "https://twitter.com/imfilp"}
