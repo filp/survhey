@@ -1,18 +1,30 @@
 = form_for(survey, html: { class: "survey__form" }) do |f|
-  .form__section
-    = f.label :title, "Question:"
-    = f.text_field :title, class: "survey__form__title"
+  .form__heading
+    .form__title Create a new survey
+    %p.form__hint
+      The best surveys are fun, simple and straight the point. If your device and browser
+      support it, remember you can use
+      %strong emoji
+      to spice things up &#x1f48B; &#x1F60A; &#x1F64C;
+
 
   .form__section
-    = f.label :choices, "Choose up to 5 possible answers:"
+    = f.label :title, "Question:"
+    = f.text_field :title, class: "text-input text-input--large", autofocus: true
+
+    = f.label :description, "Description:"
+    = f.text_area :description, class: "text-input"
+
+  .form__section
+    = f.label :choices, "Choose up to 5 choices:"
     %p.form__hint
       Choose the answers people can choose from when responding to your survey. Each person
-      can only pick one!
+      can pick one.
 
     - 5.times do |i|
       - answer = survey.choices.build
       = f.fields_for :choices, answer, child_index: answer.object_id do |ff|
-        = ff.text_field :body
+        = ff.text_field :body, class: "text-input"
 
   .form__actions
     = f.submit "Create survey", class: "btn"

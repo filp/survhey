@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root to: "home#index"
+  match "/about", to: "home#about", via: :get
 
   resources :surveys, path: :s, only: [:show, :new, :create] do
     member do

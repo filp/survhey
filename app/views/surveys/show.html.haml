@@ -20,15 +20,11 @@
               #{icon(:lock)} The results of this survey are private
 
       - if @survey.answered?(current_user)
-        - if @survey.public? || created_survey?(@survey)
+        - if @survey.public? || @survey.created_by?(current_user)
           = render "surveys/results", survey: @survey
         - else
           %p.no-content
             Thank you for answering this survey! Its creator has decided not to make the results
             public.
-
       - else
-        .survey__choices
-          - @survey.choices.each do |choice|
-            .survey__choice
-              .survey__choice__title= choice.body
+        = render "surveys/choices", survey: @survey

@@ -21,8 +21,10 @@
 class Survey < ActiveRecord::Base
   before_validation :assign_urls
 
-  has_many :choices
+  has_many :choices, -> { order(position: :desc) }
   has_many :answers
+
+  scope :eager, -> { includes(:choices, :answers) }
 
   accepts_nested_attributes_for :choices, reject_if: :all_blank
 
@@ -38,8 +40,29 @@ class Survey < ActiveRecord::Base
     answers.count
   end
 
+  def top_choice
+    choice = answers.group(:choice_id).count.first
+    choices.find(choice.first)
+  end
+
   def answered?(user)
     answers.where(uid: user.uid).any?
+  end
+
+  def answer_by(user)
+    answers.find_by(uid: user.uid)
+  end
+
+  def created_by?(user)
+    uid == user.uid
+  end
+
+  def cast_answer(choice, user)
+    raise "Cannot create answer on this choice - wrong survey" if choice.survey != self
+
+    unless answered?(user)
+      choice.answers.create!(survey: self, uid: user.uid)
+    end
   end
 
 private

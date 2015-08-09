@@ -16,6 +16,7 @@ gem "puma", "~> 2.11.3"
 gem "foreman", require: false
 gem "jquery-rails"
 gem "uglifier"
+gem "chart-js-rails" # I had forgotten how much I hate handling assets through gems
 
 group :development do
   gem "spring"

@@ -1,4 +1,13 @@
 %header.page__header
-  .branding
-    %span.branding__name survhey
-    %span.branding__message= totally_randum_spork_message
+  .row
+    .col-sm-12.col-md-6
+      .branding
+        %span.branding__name survhey
+        %span.branding__message= totally_randum_spork_message
+    .col-sm-12.col-md-6
+      %ul.page__header__actions
+        %li.primary
+          = link_to new_survey_path do
+            #{icon :lab} Create a survey
+
+        %li= link_to "About", about_path

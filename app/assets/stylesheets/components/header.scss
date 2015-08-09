@@ -1,3 +1,33 @@
 .page__header {
   margin-bottom: 40px;
 }
+
+  .page__header__actions {
+    text-align: right;
+  }
+
+.page__header__actions {
+  display: block;
+  list-style-type: none;
+
+  &, li {
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    display: inline-block;
+    &:not(:last-child) {
+      margin-right: 10px;
+    }
+
+    a {
+      color: $secondary-text-color;
+      text-decoration: none;
+    }
+
+    &.primary {
+      a { color: $link-color; }
+    }
+  }
+}

@@ -1,6 +1,33 @@
 .survey__results#results
   - if survey.answers?
-    %h4 Results
+    .row
+      .col-sm-12.col-md-6
+        .survey__results__summary
+          %h4 Results:
+          %p.secondary-text
+            Hover with your mouse or tap on the sections of the chart to
+            see more information.
+          .survey__results__graph
+            %canvas{id: "results-graph", data: { graph: survey_graph_data(survey)}}
+      .col-sm-12.col-md-6
+        - top_choice = survey.top_choice
+
+        - if top_choice
+          .survey__results__answer
+            %h4 Top answer:
+            .survey__results__answer__choice.survey__results__answer__choice--top= top_choice.body
+
+        .survey__results__answer
+          - if survey.answered?(current_user)
+            %h4 You answered:
+            .survey__results__answer__choice= survey.answer_by(current_user).choice.body
+
+            %p.secondary-text
+              = totally_randum_answer_comment
+          - else
+            %p.no-content
+              You didn't answer this survey
+
   - else
     %p.no-content
       = icon :lab, "big-icon"

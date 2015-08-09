@@ -21,6 +21,11 @@ class SurveysController < ApplicationController
   end
 
   def answer
+    choice = @survey.choices.find(params[:choice])
+
+    @survey.cast_answer(choice, current_user)
+
+    redirect_to survey_path(@survey.public_url)
   end
 
 private
@@ -32,6 +37,6 @@ private
   end
 
   def load_survey_from_public_url
-    @survey = Survey.find_by!(public_url: params[:id])
+    @survey = Survey.eager.find_by!(public_url: params[:id])
   end
 end

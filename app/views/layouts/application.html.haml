@@ -2,7 +2,8 @@
 %html
   %head
     %meta{charset: "utf-8"}
-    %meta{name: "survey-uid", value: current_user.uid}
+    = csrf_meta_tag
+
     %title= page_title(app_name: "survhey.io", separator: " - ")
 
     = stylesheet_link_tag "//fonts.googleapis.com/css?family=Roboto:300,400,500"
@@ -12,3 +13,5 @@
     .page__container.container
       = render "shared/header"
       = yield
+
+      = javascript_include_tag :application

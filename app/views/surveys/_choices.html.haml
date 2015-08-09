@@ -1,0 +1,5 @@
+.survey__choices
+  - survey.choices.each do |choice|
+    .survey__choice
+      = link_to answer_survey_path(survey.public_url, choice: choice.id), method: :post do
+        .survey__choice__title= choice.body

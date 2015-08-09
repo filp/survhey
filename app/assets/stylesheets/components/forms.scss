@@ -1,21 +1,33 @@
 label {
   color: $dark-gray;
-  font-size: $bigger-text;
+  font-size: $normal-text;
   padding-left: 20px;
+  display: block;
+  margin-bottom: 10px;
 }
 
-input[type="text"], textarea {
+.text-input {
+  @include transition(box-shadow 0.1s ease);
+
   width: 100%;
-  font-size: $bigger-text;
+  font: inherit;
   padding: 20px;
-  margin: 10px 0;
+  margin: 0 0 20px 0;
 
   border: none;
   outline: none;
 
   border-radius: $base-border-radius;
   box-shadow: inset 0 0 0 2px $clear-gray;
+
+  &:focus {
+    box-shadow: inset 0 0 0 2px $primary-color-faded;
+  }
 }
+
+  .text-input--large {
+    font-size: $biggerer-text;
+  }
 
 form {
   margin: 40px 0;
@@ -26,6 +38,15 @@ form {
   color: $secondary-text-color;
   font-size: $small-text;
 }
+
+.form__heading {
+  margin-bottom: 40px;
+}
+
+  .form__title {
+    padding: 0 20px;
+    font-size: $biggerer-text;
+  }
 
 .form__section {
   &:not(:last-child){
