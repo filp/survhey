@@ -3,4 +3,9 @@
   margin: 20px 0;
   box-shadow: inset 0 0 0 3px $clear-gray;
   border-radius: $base-border-radius;
+
+  a {
+    display: block;
+    word-wrap: break-word;
+  }
 }
