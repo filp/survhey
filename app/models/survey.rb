@@ -24,7 +24,9 @@ class Survey < ActiveRecord::Base
   has_many :choices, -> { order(position: :desc) }
   has_many :answers
 
+  scope :ordered, -> { order(created_at: :desc) }
   scope :eager, -> { includes(:choices, :answers) }
+  scope :by_uid, -> uid { where(uid: uid) }
 
   accepts_nested_attributes_for :choices, reject_if: :all_blank
 

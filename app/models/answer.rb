@@ -18,4 +18,6 @@
 class Answer < ActiveRecord::Base
   belongs_to :survey
   belongs_to :choice
+
+  scope :by_uid, -> uid { where(uid: uid) }
 end

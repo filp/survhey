@@ -1,0 +1,18 @@
+- title "Your surveys"
+
+.row
+  .col-sm-12
+    - if @surveys.empty?
+      %p.no-content
+        You didn't create any surveys yet. #{link_to "Create a survey", new_survey_path}
+    - else
+      .survey-list
+
+        .account-link-notice
+          %h5 On the go? Access your surveys everywhere
+          %p.secondary-text
+            Open the following link in your other devices to link your accounts:
+            = link_to link_account_url(uid: current_user.uid), ""
+
+        %h4 Your surveys
+        = render @surveys

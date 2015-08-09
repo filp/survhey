@@ -1,6 +1,10 @@
 class SurveysController < ApplicationController
   before_action :load_survey_from_public_url, only: [:show, :answer]
 
+  def index
+    @surveys = current_user.surveys.ordered.eager.last(50)
+  end
+
   def show
   end
 
