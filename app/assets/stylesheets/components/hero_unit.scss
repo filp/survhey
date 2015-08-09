@@ -1,0 +1,25 @@
+.hero-unit {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+  .hero-unit__title {
+    font-size: $biggerer-text * 2;
+    font-weight: 600;
+  }
+
+  .hero-unit__action {
+    margin: 40px 0;
+  }
+
+    .hero-unit__action-aside {
+      margin-top: 13px;
+      font-size: $small-text;
+      color: $secondary-text-color;
+    }
+
+  .hero-unit__copy {
+    color: $dark-gray;
+
+    padding: 10px 40px;
+  }

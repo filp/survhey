@@ -1,4 +1,9 @@
-.branding {}
+.branding {
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
 
   .branding__name {
     font-weight: bold;

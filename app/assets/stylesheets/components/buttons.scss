@@ -3,6 +3,7 @@
   $btn-hover-color: darken($btn-color, 3%);
   $btn-pressed-color: darken($btn-color, 5%);
 
+  border-radius: $base-border-radius;
   padding: 12px 26px;
   background-color: $btn-color;
   color: white;

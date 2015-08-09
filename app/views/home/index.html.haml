@@ -1,14 +1,12 @@
-.hero-unit
-  .row
-    .col-sm-12
-      .hero-unit__message
-        %h1.hero-unit__title survhey
-        .hero-unit__sub-copy
-          %p
-            Get answers, for your health.
-
-          %p.hero-unit__action
-            = link_to "Start a survhey", "#", class: "btn"
-
-          %p.aside-paragraph
-            (no signup needed)
+.row
+  .col-sm-12
+    .hero-unit
+      .hero-unit__title surveys in 30 seconds
+      %p.hero-unit__copy
+        #{link_to "survhey.io", root_path} lets you create simple surveys in
+        a few seconds, and share them with friends or colleagues. No registration,
+        no credit cards, no hidden tricks.
+      .hero-unit__action
+        = link_to "Create a survey", new_survey_path, class: "btn"
+        %p.hero-unit__action-aside
+          free, no registration required
