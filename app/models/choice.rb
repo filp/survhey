@@ -15,7 +15,7 @@
 
 class Choice < ActiveRecord::Base
   belongs_to :survey
-  has_many :answers
+  has_many :answers, dependent: :destroy
 
   validates :body, length: { minimum: 1, maximum: 140 }
 end

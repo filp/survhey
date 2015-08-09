@@ -21,7 +21,7 @@
 class Survey < ActiveRecord::Base
   before_validation :assign_urls
 
-  has_many :choices, -> { order(position: :desc) }
+  has_many :choices, -> { order(position: :desc) }, dependent: :destroy
   has_many :answers
 
   scope :ordered, -> { order(created_at: :desc) }
