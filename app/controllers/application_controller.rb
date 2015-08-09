@@ -11,7 +11,7 @@ private
 
   def redirect_to_apex
     if request.host =~ /\Awww\./
-      redirect_to request.host[4..-1] + request.fullpath, status: :moved_permanently
+      redirect_to "#{request.scheme}://" + request.host[4..-1] + request.fullpath, status: :moved_permanently
     end
   end
 end
