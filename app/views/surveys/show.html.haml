@@ -7,7 +7,7 @@
         .survey__title= @survey.title
         .survey__description
           - if @survey.description.blank?
-            %em.nothing This survey has no description
+            This survey has no description
           - else
             = @survey.description
 
