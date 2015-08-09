@@ -15,6 +15,7 @@ $(function () {
 
     new Chart(ctx).Doughnut(data, {
       animateScale: true,
+      animationSteps: 80,
       responsive: true
     });
   }

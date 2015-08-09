@@ -1,4 +1,6 @@
-.survey {}
+.survey {
+  @include animation(fadeIn 0.3s ease-in);
+}
   .survey__header {
     margin-bottom: 30px;
   }
@@ -102,3 +104,7 @@
     #results-graph {
       max-height: 300px;
     }
+
+.survey__form {
+  @include animation(fadeIn 0.6s ease-in);
+}
