@@ -15,7 +15,6 @@ gem "sass-rails"
 gem "puma", "~> 2.11.3"
 gem "foreman", require: false
 gem "jquery-rails"
-gem "gemoji"
 gem "uglifier"
 
 group :development do

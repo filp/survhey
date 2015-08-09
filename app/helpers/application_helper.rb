@@ -26,16 +26,6 @@ module ApplicationHelper
     content_tag(:span, "", class: ["font-icon li-#{name}", klass].compact.join(" "))
   end
 
-  def emojify(content)
-    h(content).to_str.gsub(/:([\w+-]+):/) do |match|
-      if emoji = Emoji.find_by_alias($1)
-        %(<img alt="#$1" src="#{image_path("emoji/#{emoji.image_filename}")}" class="emoji"  />)
-      else
-        match
-      end
-    end.html_safe if content.present?
-  end
-
   def totally_randum_spork_message
     OMG_RANDUM_MESSAGES.sample
   end

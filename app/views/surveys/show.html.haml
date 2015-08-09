@@ -4,12 +4,12 @@
   .col-sm-12
     .survey
       .survey__header
-        .survey__title= emojify @survey.title
+        .survey__title= @survey.title
         .survey__description
           - if @survey.description.blank?
             %em.nothing This survey has no description
           - else
-            = emojify @survey.description
+            = @survey.description
 
         %ul.survey__meta
           %li.survey__date #{icon(:calendar)} #{@survey.created_at.strftime("%Y-%m-%d")}
@@ -31,4 +31,4 @@
         .survey__choices
           - @survey.choices.each do |choice|
             .survey__choice
-              .survey__choice__title= emojify choice.body
+              .survey__choice__title= choice.body
