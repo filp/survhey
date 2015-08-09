@@ -3,7 +3,7 @@ class AccountsController < ApplicationController
     uid = params[:uid]
 
     if uid && uid != current_user.uid
-      cookies[UID_COOKIE_KEY] = uid
+      cookies.permanent.signed[UID_COOKIE_KEY] = uid
       current_user.migrate_content(uid)
     end
 
