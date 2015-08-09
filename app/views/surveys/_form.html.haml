@@ -26,5 +26,14 @@
       = f.fields_for :choices, answer, child_index: answer.object_id do |ff|
         = ff.text_field :body, class: "text-input"
 
+  .form__section
+    .checkbox-input
+      = f.check_box :public, checked: true
+      = f.label :public, "Make the survey results public?"
+
+    %p.form__hint
+      If you uncheck this box, only you will have access to the results.
+      You can also share the secret link to the results page to share it with individuals.
+
   .form__actions
     = f.submit "Create survey", class: "btn"

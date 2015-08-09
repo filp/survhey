@@ -29,6 +29,13 @@ label {
     font-size: $biggerer-text;
   }
 
+.checkbox-input {
+  label {
+    display: inline-block;
+    padding-left: 10px;
+  }
+}
+
 form {
   margin: 40px 0;
 }
