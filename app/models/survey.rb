@@ -24,6 +24,8 @@ class Survey < ActiveRecord::Base
   has_many :choices
   has_many :answers
 
+  accepts_nested_attributes_for :choices, reject_if: :all_blank
+
   validates :title, length: { minimum: 1, maximum: 140 }
   validates :description, length: { maximum: 1024 }
   validate :number_of_choices
@@ -36,8 +38,8 @@ class Survey < ActiveRecord::Base
     answers.count
   end
 
-  def answers_from_uid(uid)
-    answers.where(uid: uid)
+  def answered?(user)
+    answers.where(uid: user.uid).any?
   end
 
 private
@@ -55,6 +57,6 @@ private
 
   # Ensure that a survey always has at least one choice
   def number_of_choices
-    errors.add(:base, :atleast_one_choice) unless choices.any?
+    errors.add(:base, :atleast_two_choices) unless choices.any?
   end
 end

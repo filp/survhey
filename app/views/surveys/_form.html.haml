@@ -1,0 +1,18 @@
+= form_for(survey, html: { class: "survey__form" }) do |f|
+  .form__section
+    = f.label :title, "Question:"
+    = f.text_field :title, class: "survey__form__title"
+
+  .form__section
+    = f.label :choices, "Choose up to 5 possible answers:"
+    %p.form__hint
+      Choose the answers people can choose from when responding to your survey. Each person
+      can only pick one!
+
+    - 5.times do |i|
+      - answer = survey.choices.build
+      = f.fields_for :choices, answer, child_index: answer.object_id do |ff|
+        = ff.text_field :body
+
+  .form__actions
+    = f.submit "Create survey", class: "btn"

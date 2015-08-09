@@ -1,7 +1,6 @@
 .survey__results#results
-  - if !survey.answers?
-    .survey__results__header
-      #{icon :lab} Results
+  - if survey.answers?
+    %h4 Results
   - else
     %p.no-content
       = icon :lab, "big-icon"

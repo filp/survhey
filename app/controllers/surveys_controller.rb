@@ -4,10 +4,32 @@ class SurveysController < ApplicationController
   def show
   end
 
+  def new
+    @survey = Survey.new(uid: current_user.uid)
+  end
+
+  def create
+    @survey = Survey.new(survey_params.merge(
+      uid: current_user.uid
+    ))
+
+    if @survey.save
+      redirect_to survey_path(@survey.public_url)
+    else
+      render :new
+    end
+  end
+
   def answer
   end
 
 private
+
+  def survey_params
+    params.require(:survey).permit(
+      :title, :description, :public, choices_attributes: [:body, :position]
+    )
+  end
 
   def load_survey_from_public_url
     @survey = Survey.find_by!(public_url: params[:id])

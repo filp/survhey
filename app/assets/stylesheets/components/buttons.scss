@@ -7,6 +7,8 @@
   background-color: $btn-color;
   color: white;
   font-weight: 400;
+  border: none;
+  outline: none;
 
   &:hover, &:focus, &:active {
     text-decoration: none;

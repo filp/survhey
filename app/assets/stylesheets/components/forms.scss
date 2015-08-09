@@ -1,0 +1,34 @@
+label {
+  color: $dark-gray;
+  font-size: $bigger-text;
+  padding-left: 20px;
+}
+
+input[type="text"], textarea {
+  width: 100%;
+  font-size: $bigger-text;
+  padding: 20px;
+  margin: 10px 0;
+
+  border: none;
+  outline: none;
+
+  border-radius: $base-border-radius;
+  box-shadow: inset 0 0 0 2px $clear-gray;
+}
+
+form {
+  margin: 40px 0;
+}
+
+.form__hint {
+  padding: 20px;
+  color: $secondary-text-color;
+  font-size: $small-text;
+}
+
+.form__section {
+  &:not(:last-child){
+    margin-bottom: 20px;
+  }
+}

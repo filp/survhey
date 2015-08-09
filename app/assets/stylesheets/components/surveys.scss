@@ -5,13 +5,23 @@
 
   .survey__meta {
     font-size: $small-text;
-  }
-    .survey__visibility {
-      color: $secondary-text-color;
-    }
-      .survey__visibility--private {}
+    color: $secondary-text-color;
+    list-style-type: none;
+    display: block;
 
-    .survey__url {}
+    &, li {
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+      display: inline;
+
+      &:not(:last-child) {
+        margin-right: 10px;
+      }
+    }
+  }
 
   .survey__title {
     font-size: $biggerer-text * 1.7;
@@ -24,22 +34,16 @@
   }
 
   .survey__results {
-    margin: 20px 0;
+    margin: 40px 0;
+    padding-top: 40px;
+
+    border-top: 1px solid $clear-gray;
   }
-
-    .survey__results__header {
-      font-size: $bigger-text;
-      margin-bottom: 20px;
-
-      .icon {
-        margin-right: 20px;
-      }
-    }
 
   .survey__choices {}
 
     .survey__choice {
-      border-radius: 6px;
+      border-radius: $base-border-radius;
       padding: 15px 25px;
       box-shadow: inset 0 0 0 3px $clear-gray;
       cursor: pointer;
