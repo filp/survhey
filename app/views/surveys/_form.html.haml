@@ -24,7 +24,7 @@
     - 5.times do |i|
       - answer = survey.choices.build
       = f.fields_for :choices, answer, child_index: answer.object_id do |ff|
-        = ff.text_field :body, class: "text-input"
+        = ff.text_field :body, class: "text-input", placeholder: "#{ActiveSupport::Inflector.ordinalize(i + 1)} choice"
 
   .form__section
     .checkbox-input
