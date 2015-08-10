@@ -117,7 +117,7 @@
 
   .survey-list__item {
     display: block;
-    padding: 15px;
+    padding: 15px 0;
 
     color: inherit;
 
@@ -126,7 +126,9 @@
     }
 
     &:hover {
-      background: rgba(#f3582a,.07);
+      .survey-list__item__meta li {
+        color: $primary-color;
+      }
     }
   }
 
