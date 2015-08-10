@@ -8,17 +8,17 @@
 
         You didn't create any surveys yet. #{link_to "Create a survey", new_survey_path}
     - else
+
+      .account-link-notice
+        %p.secondary-text
+          Access your surveys wherever you are, just open this URL on your other devices to
+          link your accounts:
+
+          - url = link_account_url(uid: current_user.uid)
+          %input.text-input.account-link-url{type: :text, readonly: true, value: url}
+          %small
+            = mail_to("", "(email it to yourself)", subject: "Link you survhey account",
+                              body: "#{link_account_url(uid: current_user.uid)}\n\nLove,\nMe")
+
       .survey-list
-
-        .account-link-notice
-          %p.secondary-text
-            Access your surveys wherever you are, just open this URL on your other devices to
-            link your accounts:
-
-            - url = link_account_url(uid: current_user.uid)
-            %input.text-input.account-link-url{type: :text, readonly: true, value: url}
-            %small
-              = mail_to("", "(email it to yourself)", subject: "Link you survhey account",
-                                body: "#{link_account_url(uid: current_user.uid)}\n\nLove,\nMe")
-
         = render @surveys

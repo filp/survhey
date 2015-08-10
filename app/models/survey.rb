@@ -34,6 +34,10 @@ class Survey < ActiveRecord::Base
   validates :description, length: { maximum: 1024 }
   validate :number_of_choices
 
+  def private?
+    !public?
+  end
+
   def answers?
     answers.any?
   end

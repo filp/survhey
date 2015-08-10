@@ -110,11 +110,14 @@
   @include animation(fadeIn 0.3s ease-in);
 }
 
-.survey-list {}
+.survey-list {
+  border-top: 1px solid $clear-gray;
+  padding-top: 20px;
+}
 
   .survey-list__item {
     display: block;
-    padding: 15px 0;
+    padding: 15px;
 
     color: inherit;
 
@@ -122,7 +125,29 @@
       text-decoration: none;
     }
 
-    &:not(:last-child) {
-      border-bottom: 1px solid $clear-gray;
+    &:hover {
+      background: rgba(#f3582a,.07);
     }
   }
+
+    .survey-list__item__title {
+      float: left;
+    }
+
+    .survey-list__item__meta {
+      display: block;
+
+      li, & {
+        margin: 0;
+        padding: 0
+      }
+
+      li {
+        display: inline;
+        color: $secondary-text-color;
+
+        &:not(:last-child) {
+          margin-right: 10px;
+        }
+      }
+    }

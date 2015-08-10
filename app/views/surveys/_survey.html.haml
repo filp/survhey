@@ -1,2 +1,14 @@
 = link_to survey_path(survey.public_url), class: "survey-list__item" do
-  .survey-list__item__title= survey.title
+  .row
+    .col-sm-6
+      .survey-list__item__title= survey.title
+    .col-sm-6.text-right
+      %ul.survey-list__item__meta
+        - if survey.private?
+          %li= icon(:lock)
+        %li
+          - if survey.answers?
+            #{survey.total_answers} #{"answer".pluralize(survey.total_answers)}
+          - else
+            No answers
+        %li #{survey.created_at.strftime("%Y-%m-%d")}
