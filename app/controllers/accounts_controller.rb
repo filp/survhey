@@ -7,6 +7,6 @@ class AccountsController < ApplicationController
       current_user.migrate_content(uid)
     end
 
-    redirect_to root_path
+    redirect_to surveys_path
   end
 end
