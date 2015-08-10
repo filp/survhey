@@ -14,14 +14,6 @@ module ApplicationHelper
     "thrice a day keeps the doctor away"
   ].freeze
 
-  OMG_RANDUM_COMMENTS_SO_RANDUM = [
-    "you made the right choice",
-    "what were you thinking?",
-    "that's a pretty solid choice",
-    "we think that was a good choice",
-    "I would've picked the other option"
-  ].freeze
-
   def current_user
     @current_user
   end
@@ -36,9 +28,5 @@ module ApplicationHelper
 
   def totally_randum_spork_message
     OMG_RANDUM_MESSAGES.sample
-  end
-
-  def totally_randum_answer_comment
-    OMG_RANDUM_COMMENTS_SO_RANDUM.sample
   end
 end
