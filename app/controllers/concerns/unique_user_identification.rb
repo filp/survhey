@@ -21,4 +21,8 @@ module UniqueUserIdentification
 
     User.new(uid: uid_from_cookie)
   end
+
+  def valid_uid?(uid)
+    (uid && uid.length >= 30)
+  end
 end
