@@ -97,12 +97,13 @@
     }
 
   .survey__results__graph {
-    margin: 10px 0;
+    margin: 20px 0;
     text-align: center;
   }
 
     #results-graph {
       max-height: 300px;
+      max-width: 600px;
     }
 
 .survey__form {
