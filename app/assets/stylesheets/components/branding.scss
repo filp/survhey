@@ -18,3 +18,26 @@
     font-weight: 300;
     vertical-align: middle;
   }
+
+.statement {
+  padding-bottom: 40px;
+  margin-bottom: 40px;
+  font-size: $small-text;
+
+  p {
+    color: $dark-gray;
+  }
+}
+
+  .statement--primary {
+    margin-bottom: 40px;
+    padding-bottom: 80px;
+    text-align: center;
+    font-size: $normal-text;
+
+    border-bottom: 1px solid $clear-gray;
+
+    p {
+      color: $text-color;
+    }
+  }

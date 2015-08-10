@@ -1,13 +1,49 @@
 .row
-  .col-sm-12.text-center
-    %p
-      = icon :paperplane, "big-icon"
+  .col-sm-12
+    .statement.statement--primary
+      %p
+        = icon :paperplane, "big-icon"
 
-      #{link_to "survhey.io", root_path} was created by Filipe Dobreira, on a Saturday around midnight.
+        #{link_to "survhey.io", root_path} was created by Filipe Dobreira, on a Saturday around midnight.
 
-    %p
-      Its source code is available on Github: #{link_to "filp/survhey", "https://github.com/filp/survhey"}
+      %p
+        Its source code is available on Github: #{link_to "filp/survhey", "https://github.com/filp/survhey", target: "_blank"}
 
-    %p
-      If you liked it, found a bug, or just to say hi, tweet away at
-      #{link_to "@imfilp", "https://twitter.com/imfilp"}
+      %p
+        If you liked it, found a bug, or just to say hi, tweet away at
+        #{link_to "@imfilp", "https://twitter.com/imfilp", target: "_blank"}
+.row
+  .col-sm-12.col-md-8.col-md-offset-2
+    .statement
+      %h4 On privacy & data
+
+      %p
+
+        Survhey stores a few cookies with exclusively anonymous information in order to know
+        which surveys you created and which surveys you've answered.
+
+      %p
+        Survhey does not want your email, name, credit card information or address. Quite
+        honestly survhey does not care who you are, just that you're cool.
+.row
+  .col-sm-12.col-md-8.col-md-offset-2
+    .statement
+      %h4 On assurances, bugs and complaints
+
+      %p
+        Survhey was built as a weekend project, and is supported much in the
+        same way. While there's an effort to ensure everything is running in
+        tip top shape, there's no guarantees it'll even still be here tomorrow.
+
+      %p
+        If you find a bug, have a suggestion, or just want to chat, tweet in my
+        general direction at #{link_to "@imfilp", "https://twitter.com/imfilp", target: "_blank"}
+
+.row
+  .col-sm-12.col-md-8.col-md-offset-2
+    .statement
+      %h4 Loose change
+
+      %p
+        Icons are #{link_to "Linecons", "http://designmodo.com/linecons-free/", target: "_blank"},
+        they're pretty nice right? #{icon :heart} #{icon :bulb} #{icon :lab} #{icon :like}
