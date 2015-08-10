@@ -4,7 +4,10 @@
 }
 
   .hero-unit__title {
-    font-size: $biggerer-text * 2;
+    $title-font-size: $biggerer-text * 2;
+
+    font-size: $title-font-size;
+    line-height: $title-font-size;
     font-weight: 600;
   }
 
