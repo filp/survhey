@@ -1,12 +1,10 @@
 .account-link-notice {
-  padding: 20px;
   margin: 20px 0;
-  box-shadow: inset 0 0 0 3px $clear-gray;
-  border-radius: $base-border-radius;
-
-  a {
-    display: block;
-    word-wrap: break-word;
-    font-size: $tiny-text;
-  }
+  font-size: $small-text;
 }
+
+  input.account-link-url {
+    font-size: $small-text;
+    padding: 5px;
+    margin: 10px 0 0 0;
+  }
