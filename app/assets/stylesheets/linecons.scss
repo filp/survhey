@@ -1,9 +1,9 @@
 @font-face {
   font-family: "linecons";
   src: font-url("linecons.svg") format("svg"),
-			 font-url("linecons.eot?") format("eot"),
-			 font-url("linecons.ttf") format("ttf"),
-			 font-url("linecons.woff") format("woff");
+       font-url("linecons.eot?") format("eot"),
+       font-url("linecons.ttf") format("ttf"),
+       font-url("linecons.woff") format("woff");
 }
 
 [class^="li-"]:before, [class*=" li-"]:before {
