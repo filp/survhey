@@ -31,3 +31,16 @@
     }
   }
 }
+
+@media(max-width:767px) {
+  .branding {
+    padding-bottom: 15px;
+    text-align: center;
+  }
+
+  .page__header__actions {
+    padding: 15px 10px;
+    text-align: center;
+    border-top: 1px solid $clear-gray;
+  }
+}
