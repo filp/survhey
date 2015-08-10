@@ -1,5 +1,6 @@
 class SurveysController < ApplicationController
   before_action :load_survey_from_public_url, only: [:show, :answer]
+  before_action :load_survey_from_private_url, only: [:destroy]
 
   def index
     @surveys = current_user.surveys.ordered.eager.last(50)
@@ -10,6 +11,14 @@ class SurveysController < ApplicationController
 
   def new
     @survey = Survey.new(uid: current_user.uid)
+  end
+
+  def destroy
+    if @survey.uid == current_user.uid
+      @survey.destroy
+    end
+
+    redirect_to surveys_path
   end
 
   def create
@@ -42,5 +51,9 @@ private
 
   def load_survey_from_public_url
     @survey = Survey.eager.find_by!(public_url: params[:id])
+  end
+
+  def load_survey_from_private_url
+    @survey = Survey.eager.find_by!(private_url: params[:id])
   end
 end

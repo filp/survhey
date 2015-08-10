@@ -28,3 +28,9 @@
             public.
       - else
         = render "surveys/choices", survey: @survey
+
+      - if @survey.created_by?(current_user)
+        .survey__destroy
+          - confirmation = "Are you sure? There's no way to undo this!"
+          = link_to destroy_survey_path(@survey.private_url), data: { confirm: confirmation, method: :delete} do
+            #{icon :trash} Delete this survey (and all its answers)

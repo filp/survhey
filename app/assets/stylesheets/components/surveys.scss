@@ -5,6 +5,15 @@
     margin-bottom: 30px;
   }
 
+  .survey__destroy {
+    text-align: right;
+    font-size: $small-text;
+
+    a {
+      color: $secondary-text-color;
+    }
+  }
+
   .survey__meta {
     font-size: $small-text;
     color: $secondary-text-color;
