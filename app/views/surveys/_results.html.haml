@@ -1,7 +1,7 @@
 .survey__results#results
   - if survey.answers?
     .row
-      .col-sm-12.col-md-6
+      .col-xs-12.col-sm-6
         .survey__results__summary
           %h4 Results:
           %p.secondary-text
@@ -9,7 +9,7 @@
             see more information.
           .survey__results__graph
             %canvas{id: "results-graph", data: { graph: survey_graph_data(survey)}}
-      .col-sm-12.col-md-6
+      .col-xs-12.col-sm-6
         - top_choice = survey.top_choice
 
         - if top_choice
