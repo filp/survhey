@@ -1,6 +1,6 @@
 # survhey
 
-Sunday project - surveys in 30 seconds. Try it out at https://survhey.io
+Saturday night project - surveys in 30 seconds. Try it out at https://survhey.io
 
 ![](http://i.imgur.com/Huxf0yz.png)
 ![](http://i.imgur.com/EJX10Ms.png)
