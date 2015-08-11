@@ -21,6 +21,9 @@
           - if survey.answered?(current_user)
             %h4 You answered:
             .survey__results__answer__choice= survey.answer_by(current_user).choice.body
+
+            %p.secondary-text
+              = totally_randum_answer_comment
           - else
             %p.no-content
               You didn't answer this survey
