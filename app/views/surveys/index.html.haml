@@ -17,7 +17,7 @@
           - url = link_account_url(uid: current_user.uid)
           %input.text-input.account-link-url{type: :text, readonly: true, value: url}
           %small
-            = mail_to("", "(email it to yourself)", subject: "Link you survhey account",
+            = mail_to("", "(email it to yourself)", subject: "Link your survhey account",
                               body: "#{link_account_url(uid: current_user.uid)}\n\nLove,\nMe")
 
       .survey-list
