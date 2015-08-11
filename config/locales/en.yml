@@ -21,3 +21,5 @@
 
 en:
   hello: "Hello world"
+  app:
+    description: "Start a simple, fun survey in 30 seconds"

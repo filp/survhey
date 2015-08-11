@@ -22,6 +22,10 @@ module ApplicationHelper
     "I would've picked the other option"
   ].freeze
 
+  def page_title
+    [content_for(:page_title), "survhey.io"].join(" — ")
+  end
+
   def current_user
     @current_user
   end
