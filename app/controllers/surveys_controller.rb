@@ -50,10 +50,14 @@ private
   end
 
   def load_survey_from_public_url
-    @survey = Survey.eager.find_by!(public_url: params[:id])
+    @survey = survey_scope.eager.find_by!(public_url: params[:id])
   end
 
   def load_survey_from_private_url
-    @survey = Survey.eager.find_by!(private_url: params[:id])
+    @survey = survey_scope.find_by!(private_url: params[:id])
+  end
+
+  def survey_scope
+    Survey.eager
   end
 end
