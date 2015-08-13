@@ -122,12 +122,6 @@
   @include animation(fadeIn 0.3s ease-in);
 }
 
-  .survey__choices-form {}
-
-    .survey__choices-form__choice-input {
-      @include animation(flipInX 0.5s ease-in);
-    }
-
 .survey-list {
   border-top: 1px solid $clear-gray;
   padding-top: 20px;
