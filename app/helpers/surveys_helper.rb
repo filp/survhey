@@ -5,7 +5,7 @@ module SurveysHelper
   ]
 
   def survey_graph_data(survey)
-    data = survey.choices.each_with_index.map do |choice, i|
+    survey.choices.each_with_index.map do |choice, i|
       switch = i % 2 == 0
 
       if switch
@@ -21,7 +21,5 @@ module SurveysHelper
         highlight: highlight
       }
     end
-
-    data.to_json
   end
 end

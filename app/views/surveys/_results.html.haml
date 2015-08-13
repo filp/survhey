@@ -8,7 +8,7 @@
             Hover with your mouse or tap on the sections of the chart to
             see more information.
           .survey__results__graph
-            %canvas{id: "results-graph", data: { graph: survey_graph_data(survey)}}
+            = react_component "Survhey.ResultsChart", data: survey_graph_data(survey), id: "results-graph"
       .col-xs-12.col-sm-6
         - top_choice = survey.top_choice
 

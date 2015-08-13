@@ -25,5 +25,9 @@ module Survhey
 
     # Include the "fonts" folder in the assets pipeline
     config.assets.paths << Rails.root.join("app", "assets", "fonts")
+
+    # Configure react.js
+    config.react.variant = Rails.env.development? ? :development : :production
+    config.react.addons = true
   end
 end
