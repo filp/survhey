@@ -26,7 +26,6 @@ module ApplicationHelper
     "Where should we go for lunch?",
     "Where should we go for dinner?",
     "Which movie are we watching tonight?",
-    "Have you ever danced in the rain?",
     "Where should we travel next?",
     "Who's winning the [sports] game tonight?",
     "Sequels or prequels?"
