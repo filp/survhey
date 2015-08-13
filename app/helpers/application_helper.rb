@@ -23,9 +23,10 @@ module ApplicationHelper
   ].freeze
 
   OMG_RANDUM_QUESTIONS_SPORK = [
-    "Where should we get lunch?",
+    "Where should we go for lunch?",
+    "Where should we go for dinner?",
+    "Which movie are we watching tonight?",
     "Have you ever danced in the rain?",
-    "Did you enjoy our last meeting?",
     "Where should we travel next?",
     "Who's winning the [sports] game tonight?",
     "Sequels or prequels?"
