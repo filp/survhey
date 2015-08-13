@@ -7,7 +7,7 @@ label {
 }
 
 .text-input {
-  @include transition(box-shadow 0.1s ease);
+  @include transition(border-color 0.1s ease);
 
   width: 100%;
   font: inherit;
@@ -18,10 +18,10 @@ label {
   outline: none;
 
   border-radius: $base-border-radius;
-  box-shadow: inset 0 0 0 2px $clear-gray;
+  border: 3px solid $clear-gray;
 
   &:focus {
-    box-shadow: inset 0 0 0 2px $primary-color-faded;
+    border-color: $primary-color-faded;
   }
 
   @include placeholder($bright-gray);
