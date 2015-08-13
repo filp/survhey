@@ -27,8 +27,7 @@ module ApplicationHelper
     "Where should we go for dinner?",
     "Which movie are we watching tonight?",
     "Where should we travel next?",
-    "Who's winning the [sports] game tonight?",
-    "Sequels or prequels?"
+    "Who's winning the [sports] game tonight?"
   ].freeze
 
   def page_title
