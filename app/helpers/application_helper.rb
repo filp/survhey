@@ -22,6 +22,15 @@ module ApplicationHelper
     "I would've picked the other option"
   ].freeze
 
+  OMG_RANDUM_QUESTIONS_SPORK = [
+    "Where should we get lunch?",
+    "Have you ever danced in the rain?",
+    "Did you enjoy our last meeting?",
+    "Where should we travel next?",
+    "Who's winning the [sports] game tonight?",
+    "Sequels or prequels?"
+  ].freeze
+
   def page_title
     [content_for(:page_title), "survhey.io"].join(" — ")
   end
@@ -36,6 +45,10 @@ module ApplicationHelper
 
   def icon(name, klass = nil)
     content_tag(:span, "", class: ["font-icon li-#{name}", klass].compact.join(" "))
+  end
+
+  def totally_random_question_placeholder
+    OMG_RANDUM_QUESTIONS_SPORK.sample
   end
 
   def totally_randum_spork_message

@@ -10,9 +10,10 @@
 
   .form__section
     = f.label :title, "Question:"
-    = f.text_field :title, class: "text-input text-input--large", autofocus: true
+    = f.text_field :title, class: "text-input text-input--large", autofocus: true, placeholder: totally_random_question_placeholder
 
     = f.label :description, "Description:"
+
     = f.text_area :description, class: "text-input"
 
   .form__section

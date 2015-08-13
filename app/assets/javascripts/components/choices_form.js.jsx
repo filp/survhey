@@ -1,6 +1,6 @@
 window.Survhey.ChoicesForm = (function () {
   var CHOICES_LIMIT = 25;
-  var PLACEHOLDER = "Write the first choice here";
+  var PLACEHOLDER = "first choice";
 
   var ChoicesForm = React.createClass({
     getInitialState: function () {
