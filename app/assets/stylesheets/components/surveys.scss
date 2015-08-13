@@ -59,6 +59,7 @@
       border-radius: $base-border-radius;
       padding: 15px 25px;
       box-shadow: inset 0 0 0 3px $clear-gray;
+      background: $semi-white;
       cursor: pointer;
 
       @include transition(box-shadow 0.1s ease);
@@ -120,6 +121,12 @@
 .survey__form {
   @include animation(fadeIn 0.3s ease-in);
 }
+
+  .survey__choices-form {}
+
+    .survey__choices-form__choice-input {
+      @include animation(flipInX 0.5s ease-in);
+    }
 
 .survey-list {
   border-top: 1px solid $clear-gray;

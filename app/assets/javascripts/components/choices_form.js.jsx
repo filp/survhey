@@ -32,7 +32,7 @@ window.Survhey.ChoicesForm = (function () {
         var placeholder = id === 0 && PLACEHOLDER || "";
 
         choices.push(
-          <input type="text" key={id} name={formKey} className="text-input"
+          <input type="text" key={id} name={formKey} className="text-input survey__choices-form__choice-input"
                  onChange={this.updateChoices.bind(this, id)} placeholder={placeholder} onKeyDown={this.disableEnter} />
         );
       }
