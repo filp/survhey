@@ -7,6 +7,25 @@ class SurveysController < ApplicationController
   end
 
   def show
+    respond_to do |format|
+      format.html
+
+      format.json do
+        render json: {
+          url: @survey.public_url,
+          title: @survey.title,
+          created_at: @survey.created_at.iso8601,
+          results: @survey.choices.map do |choice|
+            {
+              id: choice.id,
+              body: choice.body,
+              total_answers: choice.answers.count
+            }
+          end
+        }
+      end
+
+    end
   end
 
   def new
