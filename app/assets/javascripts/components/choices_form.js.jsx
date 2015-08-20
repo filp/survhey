@@ -10,7 +10,6 @@ window.Survhey.ChoicesForm = (function () {
     },
 
     disableEnter: function (event) {
-
       if (event.which === 13) {
         event.preventDefault();
       }
