@@ -13,7 +13,9 @@ window.Survhey.ResultsChart = (function () {
       var chart = new Chart(ctx).Doughnut(this.props.data, {
         animateScale: true,
         animationSteps: 80,
-        responsive: true
+        responsive: true,
+        customTooltips: Survhey.Tooltips.chartJS,
+        tooltipTemplate: "<%= value %><%if (label){%>: <%= label %> <%}%>"
       });
 
       this.setState({ chart: chart });

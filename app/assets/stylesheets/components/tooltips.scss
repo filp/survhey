@@ -1,0 +1,28 @@
+.tooltip {
+  position: absolute;
+  pointer-events: none;
+
+  padding: 8px 10px;
+  border-radius: $base-border-radius;
+  background: $secondary-color-faded;
+  color: $bright-gray;
+
+  max-width: 400px;
+  min-width: 120px;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  @include animation(bounceIn 0.4s ease-in);
+}
+
+  .tooltip--disappear {
+    @include animation(zoomOut 0.2s forwards);
+  }
+
+  .tooltip-value {
+    padding: 0 10px 0 5px;
+    font-weight: 700;
+    color: white;
+  }
