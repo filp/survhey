@@ -18,6 +18,7 @@ gem "jquery-rails"
 gem "uglifier"
 gem "react-rails"
 gem "chart-js-rails" # I had forgotten how much I hate handling assets through gems
+gem "auto_strip_attributes", "~> 2.0"
 
 group :development do
   gem "spring"

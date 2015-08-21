@@ -21,6 +21,8 @@
 class Survey < ActiveRecord::Base
   before_validation :assign_urls
 
+  auto_strip_attributes :title, :description
+
   has_many :choices, -> { order(position: :desc) }, dependent: :destroy
   has_many :answers
 

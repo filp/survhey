@@ -40,6 +40,8 @@ GEM
       activerecord (>= 2.3.0)
       rake (>= 0.8.7)
     arel (6.0.3)
+    auto_strip_attributes (2.0.6)
+      activerecord (>= 3.0)
     autoprefixer-rails (5.2.1.1)
       execjs
       json
@@ -217,6 +219,7 @@ PLATFORMS
 
 DEPENDENCIES
   annotate
+  auto_strip_attributes (~> 2.0)
   bcrypt (= 3.1.10)
   better_errors
   binding_of_caller

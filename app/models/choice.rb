@@ -14,6 +14,8 @@
 #
 
 class Choice < ActiveRecord::Base
+  auto_strip_attributes :body
+
   belongs_to :survey
   has_many :answers, dependent: :destroy
 
