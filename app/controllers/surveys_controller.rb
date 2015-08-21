@@ -15,6 +15,7 @@ class SurveysController < ApplicationController
           url: @survey.public_url,
           title: @survey.title,
           created_at: @survey.created_at.iso8601,
+          total_answers: @survey.total_answers,
           choices: @survey.choices.map do |choice|
             {
               id: choice.id,
