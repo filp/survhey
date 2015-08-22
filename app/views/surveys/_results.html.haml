@@ -3,30 +3,31 @@
     .row
       .col-xs-12.col-sm-6
         .survey__results__summary
-          %h4 Results:
           %p.secondary-text
-            Hover with your mouse or tap on the sections of the chart to
+            Hover your mouse or tap on the sections of the chart to
             see more information.
           .survey__results__graph
             = react_component "Survhey.ResultsChart", data: survey_graph_data(survey), id: "results-graph"
       .col-xs-12.col-sm-6
         - top_choice = survey.top_choice
+        - answer = survey.answer_by(current_user)
 
-        - if top_choice
-          .survey__results__answer
-            %h4 Top answer:
-            .survey__results__answer__choice.survey__results__answer__choice--top= top_choice.body
+        %ul.info-list
+          %li
+            .info-list__section-title Total answers:
+            .info-list__section-body
+              = survey.total_answers
 
-        .survey__results__answer
-          - if survey.answered?(current_user)
-            %h4 You answered:
-            .survey__results__answer__choice= survey.answer_by(current_user).choice.body
+          - if top_choice
+            %li
+              .info-list__section-title Top answer:
+              .info-list__section-body= top_choice.body
 
-            %p.secondary-text
-              = totally_randum_answer_comment
-          - else
-            %p.no-content
-              You didn't answer this survey
+          - if answer
+            %li
+              .info-list__section-title Your answer:
+              .info-list__section-body.info-list__section-body--primary
+                = answer.choice.body
 
   - else
     %p.no-content

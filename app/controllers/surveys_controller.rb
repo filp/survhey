@@ -11,19 +11,26 @@ class SurveysController < ApplicationController
       format.html
 
       format.json do
-        render json: {
+        survey_json = {
           url: @survey.public_url,
           title: @survey.title,
           created_at: @survey.created_at.iso8601,
-          total_answers: @survey.total_answers,
-          choices: @survey.choices.map do |choice|
-            {
-              id: choice.id,
-              body: choice.body,
-              answers: choice.answers.count
-            }
-          end
         }
+
+        if can_see_results?(@survey)
+          survey_json.merge!({
+            total_answers: @survey.total_answers,
+            choices: @survey.choices.map do |choice|
+              {
+                id: choice.id,
+                body: choice.body,
+                answers: choice.answers.count
+              }
+            end
+          })
+        end
+
+        render json: survey_json
       end
 
     end
@@ -62,6 +69,10 @@ class SurveysController < ApplicationController
   end
 
 private
+
+  def can_see_results?(survey)
+    survey.public? || survey.uid == current_user.uid
+  end
 
   def survey_params
     params.require(:survey).permit(

@@ -1,0 +1,27 @@
+.info-list {
+  list-style-type: none;
+
+  margin: 0 0 30px 0;
+  padding: 0;
+
+  li {
+    padding: 0;
+
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+}
+
+  .info-list__section-title {
+    color: $secondary-text-color;
+    margin-bottom: 10px;
+  }
+
+  .info-list__section-body {
+    font-size: $bigger-text;
+  }
+
+    .info-list__section-body--primary {
+      color: $primary-color-faded;
+    }
