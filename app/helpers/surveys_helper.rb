@@ -2,7 +2,7 @@ module SurveysHelper
   COLORS = {
     own_choice: "#f9724a",
     own_choice_highlight: "#ff8e6c",
-    normal: "#52668b",
+    normal: "#f3582a",
     highlight: "#f9724a"
   }.freeze
 
