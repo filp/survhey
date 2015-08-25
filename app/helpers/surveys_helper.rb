@@ -1,9 +1,9 @@
 module SurveysHelper
   COLORS = {
-    own_choice: "#f3582a",
-    own_choice_highlight: "#f9724a",
+    own_choice: "#f9724a",
+    own_choice_highlight: "#ff8e6c",
     normal: "#52668b",
-    highlight: "#6a7b98"
+    highlight: "#f9724a"
   }.freeze
 
   def survey_graph_data(survey)
