@@ -1,24 +1,22 @@
 module SurveysHelper
-  COLORS = [
-    "#f3582a",
-    "#f9724a"
-  ]
+  COLORS = {
+    normal: "#f3582a",
+    highlight: "#f9724a",
+    own_choice: "#52668b",
+    own_choice_highlight: "#6a7b98"
+  }.freeze
 
   def survey_graph_data(survey)
-    survey.choices.each_with_index.map do |choice, i|
-      switch = i % 2 == 0
+    answer = survey.answer_by(current_user)
 
-      if switch
-        color, highlight = COLORS
-      else
-        highlight, color = COLORS
-      end
+    survey.choices.map do |choice|
+      own_choice = answer && answer.choice == choice
 
       {
         value: choice.answers.count,
-        label: choice.body,
-        color: color,
-        highlight: highlight
+        label: choice.body + (own_choice ? " (your answer)" : ""),
+        color: own_choice ? COLORS[:own_choice] : COLORS[:normal],
+        highlight: own_choice ? COLORS[:own_choice_highlight] : COLORS[:highlight]
       }
     end
   end
