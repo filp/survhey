@@ -49,7 +49,7 @@ class Survey < ActiveRecord::Base
   end
 
   def top_choice
-    choice = answers.group(:choice_id).count.first
+    choice = answers.group(:choice_id).count.sort_by { |k, v| v }.last
     choices.find(choice.first)
   end
 
