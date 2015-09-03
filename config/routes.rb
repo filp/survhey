@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
-  root to: "home#index"
-  match "/about", to: "home#about", via: :get
+  root to: "surveys#new"
+  match "/about", to: "pages#about", via: :get
 
   # Account linking:
   match "/link/:uid", to: "accounts#set_uid", via: :get, as: :link_account
 
   # Front survey actions:
   match "/s/:id", to: "surveys#show", via: :get, as: :survey
-  match "/new", to: "surveys#new", via: :get, as: :new_survey
+  match "/new", to: redirect("/"), via: :get, as: :new_survey
 
   # "Backstage" survey actions:
   resources :surveys, only: [:destroy], as: :destroy_survey
