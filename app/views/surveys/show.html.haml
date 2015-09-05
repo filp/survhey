@@ -6,11 +6,8 @@
     .survey
       .survey__header
         .survey__title= @survey.title
-        .survey__description
-          - if @survey.description.blank?
-            This survey has no description
-          - else
-            = @survey.description
+        - unless @survey.description.blank?
+          .survey__description= @survey.description
 
         %ul.survey__meta
           %li.survey__date #{icon(:calendar)} #{@survey.created_at.strftime("%Y-%m-%d")}
