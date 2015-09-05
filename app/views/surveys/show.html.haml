@@ -5,23 +5,11 @@
   .col-md-12
     .survey
       .survey__header
-        .survey__title= @survey.title
-        - unless @survey.description.blank?
-          .survey__description= @survey.description
-
-        %ul.survey__meta
-          %li.survey__date #{icon(:calendar)} #{@survey.created_at.strftime("%Y-%m-%d")}
-          %li.survey__visibility{class: "survey__visibility--#{@survey.public? ? :public : :private}"}
-            - if @survey.public?
-              #{icon(:eye)} The results of this survey are public
-            - else
-              #{icon(:lock)} The results of this survey are private
-          - if @survey.created_by?(current_user)
-            %li.survey__action__destroy
-              - confirmation = "Are you sure? There's no way to undo this!"
-              = link_to destroy_survey_path(@survey.private_url), data: { confirm: confirmation, method: :delete} do
-                #{icon :trash} Delete survey
-
+        .survey__title
+          - if @survey.private?
+            .survey__visibility{title: "The results of this survey are private."}
+              #{icon(:lock)}
+          = @survey.title
 
       - if @survey.answered?(current_user)
         - if @survey.public? || @survey.created_by?(current_user)
