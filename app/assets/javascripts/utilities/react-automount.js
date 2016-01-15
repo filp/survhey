@@ -16,7 +16,7 @@ const COMPONENTS = require("../components");
 const REACT_CLASS_ATTRIBUTE = "data-react-class";
 const REACT_PROPS_ATTRIBUTE = "data-react-props";
 
-var findReactNodes = function (ancestor) {
+const findReactNodes = (ancestor) => {
   return (ancestor || document).querySelectorAll(`[${REACT_CLASS_ATTRIBUTE}]`);
 };
 
@@ -83,7 +83,7 @@ export default function reactMount(ancestor) {
   // We can now mount components while respecting dependencies.
   // `fetchAndMountEntry` finds the object corresponding to the name and
   // delegates to itself any dependencies it encounters.
-  var fetchAndMountEntry = (name) => {
+  const fetchAndMountEntry = (name) => {
     var entry = mountable[name];
 
     // Resolve any dependencies before continuing

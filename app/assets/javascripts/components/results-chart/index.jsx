@@ -10,7 +10,7 @@ const ResultsChart = React.createClass({
     id: React.PropTypes.string.isRequired
   },
 
-  componentDidMount: function () {
+  componentDidMount() {
     var canvas = ReactDOM.findDOMNode(this.refs.canvas);
 
     var ctx = canvas.getContext("2d");
@@ -25,7 +25,7 @@ const ResultsChart = React.createClass({
     this.setState({ chart: chart });
   },
 
-  render: function () {
+  render() {
     return (
       <canvas id={this.props.id} ref="canvas"></canvas>
     );

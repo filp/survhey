@@ -4,19 +4,19 @@ const CHOICES_LIMIT = 25;
 const PLACEHOLDER = "first choice";
 
 const ChoicesForm = React.createClass({
-  getInitialState: function () {
+  getInitialState() {
     return {
       choices: 1
     };
   },
 
-  disableEnter: function (event) {
+  disableEnter(event) {
     if (event.which === 13) {
       event.preventDefault();
     }
   },
 
-  updateChoices: function (id) {
+  updateChoices(id) {
     var num = this.state.choices;
 
     if (id + 1 == num && num < CHOICES_LIMIT) {
@@ -24,7 +24,7 @@ const ChoicesForm = React.createClass({
     }
   },
 
-  choices: function () {
+  choices() {
     var choices = [];
 
     for (var id = 0; id < this.state.choices; id++) {
@@ -40,7 +40,7 @@ const ChoicesForm = React.createClass({
     return choices;
   },
 
-  render: function () {
+  render() {
     return (
       <div className="survey__choices-form">
         {this.choices()}
