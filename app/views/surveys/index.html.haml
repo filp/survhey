@@ -15,7 +15,7 @@
           link your accounts:
 
           - url = link_account_url(uid: current_user.uid)
-          %input.text-input.account-link-url{type: :text, readonly: true, value: url}
+          = react_component :AutoFocusInput, value: url, "readOnly" => true, "className" => "text-input account-link-url"
           %small
             = mail_to("", "(email it to yourself)", subject: "Link your survhey account",
                               body: "#{link_account_url(uid: current_user.uid)}\n\nLove,\nMe")
