@@ -1,3 +1,17 @@
 {
-  "private": true
+  "private": true,
+  "dependencies": {
+    "babelify": "^6.4.0",
+    "browserify": "~> 10.2.4",
+    "browserify-incremental": "^3.0.1",
+    "browserify-shim": "^3.8.11",
+    "chart.js": "^1.0.2",
+    "humps": "^1.0.0",
+    "lodash": "^3.10.1",
+    "react": "^0.14.0",
+    "react-dom": "^0.14.6"
+  },
+  "browserify-shim": {
+    "jquery": "global:jQuery"
+  }
 }

@@ -7,7 +7,7 @@
             Hover your mouse or tap on the sections of the chart to
             see more information.
           .survey__results__graph
-            = react_component "Survhey.ResultsChart", data: survey_graph_data(survey), id: "results-graph"
+            = react_component :ResultsChart, data: survey_graph_data(survey), id: "results-graph"
       .col-xs-12.col-sm-6
         - top_choice = survey.top_choice
         - answer = survey.answer_by(current_user)

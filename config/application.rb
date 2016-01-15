@@ -26,8 +26,9 @@ module Survhey
     # Include the "fonts" folder in the assets pipeline
     config.assets.paths << Rails.root.join("app", "assets", "fonts")
 
-    # Configure react.js
-    config.react.variant = Rails.env.development? ? :development : :production
-    config.react.addons = true
+    # Browserify / Babel
+    config.browserify_rails.force = true
+    config.browserify_rails.commandline_options = "--extension=.jsx -t [ babelify --stage 0 --loose all --blacklist regenerator ] -t [ browserify-shim ]"
+    config.browserify_rails.commandline_options << " --fast" if Rails.env.development?
   end
 end

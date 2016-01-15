@@ -1,4 +1,3 @@
-
 source "https://rubygems.org"
 
 gem "rails", "4.2.1"
@@ -14,11 +13,9 @@ gem "bootstrap-sass", "~> 3.3.5"
 gem "sass-rails"
 gem "puma", "~> 2.11.3"
 gem "foreman", require: false
-gem "jquery-rails"
 gem "uglifier"
-gem "react-rails"
-gem "chart-js-rails" # I had forgotten how much I hate handling assets through gems
 gem "auto_strip_attributes", "~> 2.0"
+gem "browserify-rails"
 
 group :development do
   gem "spring"

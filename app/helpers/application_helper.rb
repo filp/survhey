@@ -1,4 +1,6 @@
 module ApplicationHelper
+  include ReactHelper
+
   OMG_RANDUM_MESSAGES = [
     "loves you",
     "makes surveys easy, fast and fun",
