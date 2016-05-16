@@ -72,11 +72,23 @@ class Survey < ActiveRecord::Base
     raise "Cannot create answer on this choice - wrong survey" if choice.survey != self
 
     unless answered?(user)
+      # Handle comment answers where the comment is the same as an existing choice:
+      existing_choice = find_matching_choice(comment)
+
+      if existing_choice
+        comment = nil
+        choice = existing_choice
+      end
+
       choice.answers.create!(survey: self, uid: user.uid, comment: comment)
     end
   end
 
 private
+
+  def find_matching_choice(body)
+    choices.where("LOWER(body) = LOWER(?)", body).first
+  end
 
   def create_free_form_choice
     self.choices.build(body: "Other", free_form: true)
