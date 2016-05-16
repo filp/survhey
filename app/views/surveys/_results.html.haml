@@ -29,6 +29,23 @@
               .info-list__section-body.info-list__section-body--primary
                 = answer.choice.body
 
+    - if survey.allow_free_form?
+      - answers_with_comment = survey.answers.with_comment
+
+      .row
+        .col-sm-12
+          .free-form-answers
+            %h4 Free-form answers:
+
+            .answers
+              - if answers_with_comment.any?
+                - answers_with_comment.each do |answer|
+                  = render answer
+              - else
+                %p.no-content
+                  This survey didn't receive any free-form answers yet.
+
+
   - else
     %p.no-content
       = icon :lab, "big-icon"

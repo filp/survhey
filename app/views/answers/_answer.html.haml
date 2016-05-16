@@ -1,0 +1,7 @@
+.answer{class: ("answer--with-comment" if answer.comment?)}
+  .row
+    .col-sm-10
+      - if answer.comment?
+        .answer__comment= answer.comment
+    .col-sm-2
+      .answer__date= answer.created_at.strftime("%Y-%m-%d")

@@ -54,6 +54,29 @@
         font-size: $bigger-text;
       }
 
+    .survey__comment-choice {
+      margin-top: 20px;
+
+      .survey__choice__title {
+        color: $secondary-text-color;
+      }
+    }
+
+      .survey__comment-choice__comment {
+        margin-top: 10px;
+
+        .text-input {
+          border-radius: $base-border-radius;
+          box-shadow: inset 0 0 0 3px $clear-gray;
+          margin-bottom: 5px;
+          border: none;
+
+          &:focus {
+            background-color: $semi-white;;
+          }
+        }
+      }
+
 .survey__results {
   .row:not(:last-child) {
     margin-bottom: 30px;
@@ -68,6 +91,19 @@
     #results-graph {
       max-height: 300px;
       max-width: 600px;
+    }
+
+  .answer {
+    background-color: $semi-white;
+    padding: 10px 20px;
+
+    &:not(:last-child) {
+      margin-bottom: 5px;
+    }
+  }
+
+    .answer__date {
+      color: $secondary-text-color;
     }
 
 .survey__form {

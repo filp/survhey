@@ -21,11 +21,19 @@ class SurveysController < ApplicationController
           survey_json.merge!({
             total_answers: @survey.total_answers,
             choices: @survey.choices.map do |choice|
-              {
+              choice_json = {
                 id: choice.id,
                 body: choice.body,
-                answers: choice.answers.count
+                answers: choice.answers.count,
               }
+
+              if choice.free_form?
+                choice_json.merge!(
+                  comments: choice.answers.with_comment.pluck(:comment)
+                )
+              end
+
+              choice_json
             end
           })
         end
@@ -62,8 +70,9 @@ class SurveysController < ApplicationController
 
   def answer
     choice = @survey.choices.find(params[:choice])
+    comment = params[:comment]
 
-    @survey.cast_answer(choice, current_user)
+    @survey.cast_answer(choice, comment, current_user)
 
     redirect_to survey_path(@survey.public_url)
   end
@@ -76,7 +85,8 @@ private
 
   def survey_params
     params.require(:survey).permit(
-      :title, :description, :public, choices_attributes: [:body, :position]
+      :title, :description, :public, :allow_free_form,
+      choices_attributes: [:body, :position]
     )
   end
 

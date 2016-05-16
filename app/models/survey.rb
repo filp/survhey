@@ -2,15 +2,16 @@
 #
 # Table name: surveys
 #
-#  id          :integer          not null, primary key
-#  public_url  :string           not null
-#  private_url :string           not null
-#  title       :string           not null
-#  description :text
-#  created_at  :datetime
-#  updated_at  :datetime
-#  uid         :string           not null
-#  public      :boolean          default("false"), not null
+#  id              :integer          not null, primary key
+#  public_url      :string           not null
+#  private_url     :string           not null
+#  title           :string           not null
+#  description     :text
+#  created_at      :datetime
+#  updated_at      :datetime
+#  uid             :string           not null
+#  public          :boolean          default("false"), not null
+#  allow_free_form :boolean          default("false"), not null
 #
 # Indexes
 #
@@ -35,6 +36,8 @@ class Survey < ActiveRecord::Base
   validates :title, length: { minimum: 1, maximum: 140 }
   validates :description, length: { maximum: 1024 }
   validate :number_of_choices
+
+  before_save :create_free_form_choice, if: :allow_free_form?
 
   def private?
     !public?
@@ -65,15 +68,19 @@ class Survey < ActiveRecord::Base
     uid == user.uid
   end
 
-  def cast_answer(choice, user)
+  def cast_answer(choice, comment, user)
     raise "Cannot create answer on this choice - wrong survey" if choice.survey != self
 
     unless answered?(user)
-      choice.answers.create!(survey: self, uid: user.uid)
+      choice.answers.create!(survey: self, uid: user.uid, comment: comment)
     end
   end
 
 private
+
+  def create_free_form_choice
+    self.choices.build(body: "Other", free_form: true)
+  end
 
   def assign_urls
     assign_attributes(

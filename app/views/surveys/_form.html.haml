@@ -24,6 +24,15 @@
 
   .form__section
     .checkbox-input
+      = f.check_box :allow_free_form, checked: false
+      = f.label :allow_free_form, "Accept free-form answers?"
+
+    %p.form__hint
+      Checking this box allows people to choose an "Other" option and write
+      free-form text.
+
+  .form__section
+    .checkbox-input
       = f.check_box :public, checked: true
       = f.label :public, "Make the survey results public?"
 

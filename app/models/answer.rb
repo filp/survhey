@@ -8,6 +8,7 @@
 #  survey_id  :integer          not null
 #  created_at :datetime
 #  updated_at :datetime
+#  comment    :text
 #
 # Indexes
 #
@@ -19,5 +20,14 @@ class Answer < ActiveRecord::Base
   belongs_to :survey
   belongs_to :choice
 
+  auto_strip_attributes :comment
+
+  validates :comment, length: { maximum: 1024 }
+
   scope :by_uid, -> uid { where(uid: uid) }
+  scope :with_comment, -> { where.not(comment: nil) }
+
+  def comment?
+    self.comment.present?
+  end
 end

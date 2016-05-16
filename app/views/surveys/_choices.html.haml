@@ -1,5 +1,16 @@
 .survey__choices
   - survey.choices.each do |choice|
-    .survey__choice
-      = link_to answer_survey_path(survey.public_url, choice: choice.id), method: :post do
-        .survey__choice__title= choice.body
+    - if choice.free_form?
+      .survey__comment-choice
+        = form_tag answer_survey_path(survey.public_url) do
+          = hidden_field_tag(:choice, choice.id)
+          .survey__choice__title= choice.body
+          .survey__comment-choice__comment
+            - placeholder = "Don't like any of the options? Write your choice here."
+            = text_area_tag :comment, "", class: "text-input", placeholder: placeholder
+            = submit_tag "Submit answer", class: "btn"
+
+    - else
+      .survey__choice
+        = link_to answer_survey_path(survey.public_url, choice: choice.id), method: :post do
+          .survey__choice__title= choice.body
